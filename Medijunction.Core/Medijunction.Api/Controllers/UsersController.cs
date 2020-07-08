@@ -20,28 +20,37 @@ namespace Medijunction.Api.Controllers
             _userProcess = userProcess;
         }
 
-        [HttpGet]
-        public ActionResult<string> Get()
-        {
-            return "user";
-        }
-
+        /// <summary>
+        /// This endpoint is used for reconsultation
+        /// </summary>
+        /// <param name="reConsultationRequest"></param>
+        /// <returns></returns>
         [HttpPost]
+        [Route("v1/reconsultation")]
         public ActionResult<ReconsultationResponse> Reconsultation([FromBody] ReConsultationRequest reConsultationRequest)
         {
-            var reConsultationResponse = _userProcess.Reconsultation(reConsultationRequest);
-            switch (reConsultationResponse.StatusCode)
+            try
             {
-                case System.Net.HttpStatusCode.OK:
-                    return Ok(reConsultationResponse);
-                case System.Net.HttpStatusCode.NotFound:
-                    return NotFound(reConsultationResponse);
-                case System.Net.HttpStatusCode.BadRequest:
-                    return BadRequest(reConsultationResponse);
-                case System.Net.HttpStatusCode.Conflict:
-                    return Conflict(reConsultationResponse);
+                var reConsultationResponse = _userProcess.Reconsultation(reConsultationRequest);
+                switch (reConsultationResponse.StatusCode)
+                {
+                    case System.Net.HttpStatusCode.OK:
+                        return Ok(reConsultationResponse);
+                    case System.Net.HttpStatusCode.NotFound:
+                        return NotFound(reConsultationResponse);
+                    case System.Net.HttpStatusCode.BadRequest:
+                        return BadRequest(reConsultationResponse);
+                    case System.Net.HttpStatusCode.Conflict:
+                        return Conflict(reConsultationResponse);
+                    default:
+                        return Ok();
+                }
             }
-            return reConsultationResponse;
+            catch (Exception exception)
+            {
+                var exceptionResponse = new ExceptionResponse { DeveloperMessage = exception.StackTrace, ExceptionMessage = exception.Message };
+                return new ObjectResult(exceptionResponse){ StatusCode = (int) System.Net.HttpStatusCode.InternalServerError };
+            }
         }
 
     }

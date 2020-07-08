@@ -1,12 +1,16 @@
 ﻿using MediJunction.DomainModel.Contracts;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace MediJunction.DomainModel
 {
+    [Table("AppointmentMaster")]
     public class AppointmentMaster : BaseEntity
     {
+        [Key]
         public System.Guid AppointmentId { get; set; }
         public Nullable<System.DateTime> AppointmentDate { get; set; }
         public Nullable<System.Guid> UserId { get; set; }

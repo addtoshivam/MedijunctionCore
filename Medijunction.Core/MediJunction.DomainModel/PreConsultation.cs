@@ -1,12 +1,16 @@
 ﻿using MediJunction.DomainModel.Contracts;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace MediJunction.DomainModel
 {
+    [Table("PreConsultation")]
     public class PreConsultation : BaseEntity
     {
+        [Key]
         public int PreConsultId { get; set; }
         public Nullable<System.Guid> UserId { get; set; }
         public Nullable<System.Guid> CreatedBy { get; set; }

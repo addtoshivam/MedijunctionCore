@@ -9,49 +9,50 @@ namespace Medijunction.DAL
 {
     public class EFRepository<T>: IEFRepository<T> where T: BaseEntity
     {
-        private readonly MediJunctionContext _dbContext;
-        private DbSet<T> _dbSet;
+        private MediJunctionContext DbContext { get; set; }
+        private DbSet<T> DbSet { get; set; }
 
         public EFRepository(MediJunctionContext context)
         {
-            _dbContext = context;
+            DbContext = context;
+            DbSet = context.Set<T>();
         }
 
         public T Add(T entity)
         {
-            var v = _dbSet.Add(entity);
+            var v = DbSet.Add(entity);
             return v.Entity;
         }
 
         public void Delete(T entity)
         {
-            _dbSet.Remove(entity);
+            DbSet.Remove(entity);
         }
 
         public T Get(object id)
         {
-           return _dbSet.Find(id);
+           return DbSet.Find(id);
         }
 
         public IQueryable<T> Get()
         {
-            return _dbSet.AsQueryable();
+            return DbSet.AsQueryable();
         }
 
         public IQueryable<T> FindBy(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
         {
-            IQueryable<T> query = _dbSet.Where(predicate).AsQueryable();
+            IQueryable<T> query = DbSet.Where(predicate).AsQueryable();
             return query;
         }
 
         public void Edit(T entity)
         {
-            _dbContext.Entry(entity).State = EntityState.Modified;
+            DbContext.Entry(entity).State = EntityState.Modified;
         }
 
         public void Save()
         {
-            _dbContext.SaveChanges();
+            DbContext.SaveChanges();
         }
     }
 }

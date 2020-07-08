@@ -10,10 +10,10 @@ namespace MediJunction.DomainModel
         {
         }
 
-        public DbSet<AppointmentMaster> AppointmentMasters  { get; set; }
-        public DbSet<TodaysPatientList> TodaysPatientLists { get; set; }
-        public DbSet<TodaysPatientImage> TodaysPatientImages { get; set; }
-        public DbSet<PreConsultation> PreConsultations { get; set; }
+        public DbSet<AppointmentMaster> AppointmentMaster  { get; set; }
+        public DbSet<TodaysPatientList> TodaysPatientList { get; set; }
+        public DbSet<TodaysPatientImage> TodaysPatientImage { get; set; }
+        public DbSet<PreConsultation> PreConsultation { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

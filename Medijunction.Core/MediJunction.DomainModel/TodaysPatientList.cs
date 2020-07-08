@@ -1,12 +1,16 @@
 ﻿using MediJunction.DomainModel.Contracts;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace MediJunction.DomainModel
 {
+    [Table("TodaysPatientList")]
     public class TodaysPatientList : BaseEntity
     {
+        [Key]
         public int PatientId { get; set; }
         public Nullable<System.Guid> UserId { get; set; }
         public string UserType { get; set; }
