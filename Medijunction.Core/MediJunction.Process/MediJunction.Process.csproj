@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Medijunction.DAL\Medijunction.DAL.csproj" />
+    <ProjectReference Include="..\MediJunction.DomainModel\MediJunction.DomainModel.csproj" />
+    <ProjectReference Include="..\MediJunction.ServiceModel\MediJunction.ServiceModel.csproj" />
+  </ItemGroup>
+
+</Project>

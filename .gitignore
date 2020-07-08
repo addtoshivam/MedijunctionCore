@@ -1,0 +1,24 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Medijunction.Core/.vs/Medijunction.Core/v15/Server/sqlite3
+/Medijunction.Core/.vs/Medijunction.Core/v15
+/Medijunction.Core/.vs
+/Medijunction.Core/Medijunction.Api/bin/Debug/netcoreapp2.2
+/Medijunction.Core/Medijunction.Api/obj
+*.dll
+*.pdb
+*.cache
+/Medijunction.Core/Medijunction.Utility/obj
+
+*.user
+/Medijunction.Core/Medijunction.DAL/obj
+/Medijunction.Core/Medijunction.DAL/bin/Debug/netstandard2.0
+/Medijunction.Core/MediJunction.DomainModel/bin/Debug/netstandard2.0
+/Medijunction.Core/MediJunction.DomainModel/obj
+/Medijunction.Core/Medijunction.Utility/bin/Debug/netstandard2.0
+/Medijunction.Core/MediJunction.ServiceModel/obj
+/Medijunction.Core/MediJunction.ServiceModel/bin/Debug/netstandard2.0
+/Medijunction.Core/MediJunction.Process/obj
+/Medijunction.Core/MediJunction.Process/bin/Debug/netstandard2.0
